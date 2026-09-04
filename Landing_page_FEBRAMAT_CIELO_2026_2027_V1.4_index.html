@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Parceria FEBRAMAT & CIELO</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --cielo-blue: #004990;
+      --cielo-light-blue: #00a4e4;
+      --febramat-green: #10b981;
+      --dark-navy: #0f172a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #334155;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* HEADER & NAVBAR */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ESTRUTURA DOS LOGOS VETORIAIS NO CABEÇALHO */
+    .brand-logos {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand-divider {
+      height: 28px;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cielo-light-blue);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, var(--dark-navy) 0%, var(--cielo-blue) 100%);
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--febramat-green);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 15px;
+      border: 1px solid var(--febramat-green);
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--cielo-light-blue);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #0082b9;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* SECTIONS LAYOUT */
+    .section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--dark-navy);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    }
+
+    /* EXECUTIVO CARD */
+    .exec-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-left: 5px solid var(--cielo-blue);
+    }
+
+    .exec-avatar {
+      width: 70px;
+      height: 70px;
+      background: #e0f2fe;
+      color: var(--cielo-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .exec-info h3 { font-size: 1.2rem; color: var(--dark-navy); margin-bottom: 4px; }
+    .exec-info p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* SUPORTE TÉCNICO & SUPORTES - PÁGINA 2 DO MEMORANDO */
+    .tech-card {
+      border-top: 4px solid var(--cielo-light-blue);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tech-card h4 {
+      color: var(--cielo-blue);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tech-card p.desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      min-height: 40px;
+    }
+
+    .tech-contact-list {
+      list-style: none;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 10px;
+    }
+
+    .tech-contact-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* EQUIPAMENTOS & SLA */
+    .table-container {
+      overflow-x: auto;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--dark-navy);
+      font-weight: 700;
+    }
+
+    .sla-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .sla-box h4 {
+      color: #166534;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sla-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* FAQ ACCORDION */
+    .faq-item {
+      margin-bottom: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .faq-title {
+      padding: 15px 20px;
+      background: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .faq-title:hover { background: #f8fafc; }
+
+    .faq-content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background: #fafafa;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .faq-item.active .faq-content {
+      padding: 15px 20px;
+      max-height: 300px;
+    }
+
+    .faq-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      color: var(--cielo-light-blue);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .faq-link:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark-navy);
+      color: #94a3b8;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER COM VETORES INLINE (INFALÍVEIS) -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-logos">
+        <!-- Logo FEBRAMAT SVG -->
+        <svg viewBox="0 0 200 40" style="height: 32px; width: auto;" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="30" fill="#004990" font-family="'Inter', sans-serif" font-weight="900" font-size="28" letter-spacing="-1">FEBRAMAT</text>
+        </svg>
+
+        <div class="brand-divider"></div>
+
+        <!-- Logo CIELO SVG -->
+        <svg viewBox="0 0 140 40" style="height: 30px; width: auto;" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="30" fill="#00a4e4" font-family="'Inter', sans-serif" font-weight="800" font-size="32" letter-spacing="-0.5">cielo</text>
+          <circle cx="78" cy="10" r="4.5" fill="#10b981" />
+        </svg>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#gestao">Gestão Executiva</a></li>
+        <li><a href="#suporte-tecnico">Suporte Técnico & Canais</a></li>
+        <li><a href="#equipamentos">Equipamentos & Prazos</a></li>
+        <li><a href="#memorando">Memorando Oficial</a></li>
+        <li><a href="#faq">FAQ & Dicas</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag"><i class="fa-solid fa-handshake"></i> CONTRATO RENOVADO - PARCERIA VIGENTE</span>
+      <h1>Portal de Soluções & Condições Vigentes FEBRAMAT & CIELO</h1>
+      <p>Acesse o suporte técnico dedicado, canais de atendimento, prazos operacionais e conteúdos educativos para a sua loja.</p>
+      <div class="hero-buttons">
+        <a href="https://drive.google.com/drive/folders/1vjGi4eTUuQ65UWx-n4N4aEl2N8WfCH8A" target="_blank" class="btn btn-primary"><i class="fa-brands fa-google-drive"></i> Acessar Pasta de Documentos</a>
+        <a href="https://minhaconta2.cielo.com.br/site/acessos/login" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-right-to-bracket"></i> Login Minha Conta CIELO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUADRO DE EXECUTIVOS -->
+  <section class="section" id="gestao">
+    <h2 class="section-title">Quadro de Executivos da Parceria</h2>
+    <p class="section-subtitle">Gestão dedicada mantida sem alterações para garantir máxima eficiência técnica e operacional.</p>
+    
+    <div class="card exec-card">
+      <div class="exec-avatar"><i class="fa-solid fa-user-tie"></i></div>
+      <div class="exec-info">
+        <h3>Helvio dos Santos Iope</h3>
+        <p><strong>Gerente de Relacionamento | Marcas & Franquias</strong></p>
+        <p><i class="fa-solid fa-phone"></i> Contato: (11) 94056-7653</p>
+        <p><i class="fa-solid fa-envelope"></i> E-mail: helviod@cielo.com.br</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMAÇÕES TÉCNICAS DA PÁGINA 2 DO MEMORANDO -->
+  <section class="section" id="suporte-tecnico">
+    <h2 class="section-title">Canais Especiais & Suporte Técnico Dedicado</h2>
+    <p class="section-subtitle">Centralização de atendimento para demandas técnicas, financeiras e operacionais da parceria (Pág. 02).</p>
+
+    <div class="grid-3">
+      <div class="card tech-card">
+        <div>
+          <h4><i class="fa-solid fa-headset"></i> Ilha Marcas Associados <span style="font-size:0.7rem; background:#00a4e4; color:#fff; padding:2px 6px; border-radius:10px;">NOVO</span></h4>
+          <p class="desc">Demandas cadastrais, produtos, conciliação, credenciamento, site Cielo e dúvidas gerais.</p>
+        </div>
+        <ul class="tech-contact-list">
+          <li><i class="fa-solid fa-phone"></i> (11) 4002-5221</li>
+          <li><i class="fa-solid fa-clock"></i> 7 dias por semana, das 07h às 22h</li>
+          <li><i class="fa-solid fa-envelope"></i> atendimentomarcas@cielo.com.br</li>
+        </ul>
+      </div>
+
+      <div class="card tech-card">
+        <div>
+          <h4><i class="fa-solid fa-chart-line"></i> Antecipação de Recebíveis</h4>
+          <p class="desc">Antecipação de recebíveis e contratação/dúvidas sobre o Receba Rápido.</p>
+        </div>
+        <ul class="tech-contact-list">
+          <li><i class="fa-solid fa-phone"></i> (11) 3003-8472</li>
+          <li><i class="fa-solid fa-location-dot"></i> Capitais e regiões metropolitanas</li>
+        </ul>
+      </div>
+
+      <div class="card tech-card">
+        <div>
+          <h4><i class="fa-solid fa-file-code"></i> Suporte EDI</h4>
+          <p class="desc">Duplicação de matrizes de extrato eletrônico, divergências no conteúdo dos arquivos e layout.</p>
+        </div>
+        <ul class="tech-contact-list">
+          <li><i class="fa-solid fa-phone"></i> (11) 4002-5270</li>
+          <li><i class="fa-solid fa-clock"></i> Segunda a sexta, das 09h às 18h</li>
+          <li><i class="fa-solid fa-envelope"></i> EDI@cielo.com.br</li>
+        </ul>
+      </div>
+
+      <div class="card tech-card">
+        <div>
+          <h4><i class="fa-solid fa-screwdriver-wrench"></i> Suporte Técnico</h4>
+          <p class="desc">Manutenção e troca de equipamentos, troca de hardware e liberação de carga de tabelas TEF.</p>
+        </div>
+        <ul class="tech-contact-list">
+          <li><i class="fa-solid fa-phone"></i> (11) 4002-9800 (Capitais)</li>
+          <li><i class="fa-solid fa-phone"></i> 0800 570 1800 (Demais localidades)</li>
+          <li><i class="fa-solid fa-headset"></i> 4002 8868 (Suporte TEF)</li>
+          <li><i class="fa-solid fa-envelope"></i> atendimentotef_ecf@cielo.com.br</li>
+        </ul>
+      </div>
+
+      <div class="card tech-card">
+        <div>
+          <h4><i class="fa-solid fa-cart-shopping"></i> E-commerce</h4>
+          <p class="desc">Suporte técnico para vendas online, solicitações e informações de integração e-commerce.</p>
+        </div>
+        <ul class="tech-contact-list">
+          <li><i class="fa-solid fa-phone"></i> (11) 4002-9700 (Capitais)</li>
+          <li><i class="fa-solid fa-phone"></i> 0800 570 1700 (Demais regiões)</li>
+          <li><i class="fa-solid fa-envelope"></i> cieloecommerce@cielo.com.br</li>
+          <li><i class="fa-solid fa-clock"></i> 7 dias por semana, 24 horas</li>
+        </ul>
+      </div>
+
+      <div class="card tech-card">
+        <div>
+          <h4><i class="fa-brands fa-whatsapp"></i> WhatsApp & Canais Web</h4>
+          <p class="desc">Acompanhamento rápido de solicitações e mensagens diretas.</p>
+        </div>
+        <ul class="tech-contact-list">
+          <li><i class="fa-brands fa-whatsapp"></i> WhatsApp: (11) 3003-5525</li>
+          <li><i class="fa-solid fa-globe"></i> Website: www.cielo.com.br</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPAMENTOS, INSTALAÇÕES E MANUTENÇÕES -->
+  <section class="section" id="equipamentos">
+    <h2 class="section-title">Equipamentos & Prazos Atendimento (SLA)</h2>
+    <p class="section-subtitle">Tabela de custos de locação de terminais e prazos de atendimento para manutenção e instalação.</p>
+
+    <div class="grid-2">
+      <div>
+        <h3 style="margin-bottom: 15px; color: var(--dark-navy);"><i class="fa-solid fa-calculator"></i> Equipamentos / Mês</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Modelo</th>
+                <th>Valor Mensal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>LIO</strong></td><td>R$ 35,00</td></tr>
+              <tr><td><strong>Smart</strong></td><td>R$ 25,00</td></tr>
+              <tr><td><strong>GPRS</strong></td><td>R$ 35,00</td></tr>
+              <tr><td><strong>Conectividade (TEF)</strong></td><td><span style="color:var(--febramat-green); font-weight:700;">Isento</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">* Modelos suportados: Fixa, Móvel, Flash, PinPad e LIO On.</p>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom: 15px; color: var(--dark-navy);"><i class="fa-solid fa-truck-fast"></i> SLA de Manutenção & Instalação</h3>
+        <div class="sla-box">
+          <h4><i class="fa-solid fa-wrench"></i> MANUTENÇÃO</h4>
+          <div class="sla-grid" style="margin-bottom: 20px;">
+            <div><strong>Capital:</strong> 6 horas</div>
+            <div><strong>Região Metropolitana:</strong> 12 horas</div>
+            <div><strong>Até 500km:</strong> 30 horas</div>
+          </div>
+          <p style="font-size:0.85rem; color:#15803d; margin-bottom: 15px;"><i class="fa-solid fa-circle-check"></i> Envio automático de bobinas mediante avaliação de consumo sistêmico.</p>
+
+          <h4><i class="fa-solid fa-box-open"></i> INSTALAÇÕES</h4>
+          <div class="sla-grid">
+            <div><strong>Capital:</strong> 1 dia</div>
+            <div><strong>Região Metropolitana:</strong> 2 dias</div>
+            <div><strong>Até 500km:</strong> 5 dias</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASTA COMPLETA NO GOOGLE DRIVE -->
+  <section class="section" id="memorando">
+    <div class="card" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); text-align: center; padding: 40px 20px;">
+      <i class="fa-solid fa-folder-open" style="font-size: 3rem; color: var(--cielo-blue); margin-bottom: 15px;"></i>
+      <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: var(--dark-navy);">Acesse o Memorando e Anexos Completos</h3>
+      <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 20px auto;">Consulte as cópias originais dos comunicados, tabelas completas de taxas por bandeira e formulários de credenciamento e alteração de máquinas na pasta oficial compartilhada.</p>
+      <a href="https://drive.google.com/drive/folders/1vjGi4eTUuQ65UWx-n4N4aEl2N8WfCH8A" target="_blank" class="btn btn-primary"><i class="fa-brands fa-google-drive"></i> Acessar Pasta Oficial no Google Drive</a>
+    </div>
+  </section>
+
+  <!-- CENTRAL DE CONHECIMENTO & FAQ -->
+  <section class="section" id="faq">
+    <h2 class="section-title">Perguntas Frequentes & Dicas do Blog Cielo</h2>
+    <p class="section-subtitle">Acesse tutoriais e artigos educativos selecionados para auxiliar na gestão do seu negócio.</p>
+
+    <div class="faq-item">
+      <div class="faq-title">Como funciona o Pagamento no Link de Pagamento com recebimento na hora? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-content">
+        Entenda o funcionamento, regras e vantagens do recebimento imediato ao vender online com o Link de Pagamento.
+        <br>
+        <a href="https://blog.cielo.com.br/produtos-e-servicos/link-de-pagamento-cai-na-hora/" target="_blank" class="faq-link">Ler artigo completo no Blog Cielo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-title">Qual é o melhor tipo de antecipação de recebíveis para minha loja? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-content">
+        Compare modalidades de antecipação de vendas e escolha a melhor estratégia para o fluxo de caixa do seu estabelecimento.
+        <br>
+        <a href="https://blog.cielo.com.br/produtos-e-servicos/antecipacao-de-recebiveis-qual-escolher/" target="_blank" class="faq-link">Ler artigo completo no Blog Cielo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-title">Como emitir Nota Fiscal diretamente na máquina de cartão? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-content">
+        Aprenda a otimizar a operação da sua loja emitindo notas fiscais de forma integrada pelo terminal LIO.
+        <br>
+        <a href="https://blog.cielo.com.br/produtos-e-servicos/como-emitir-nota-fiscal-na-maquina-cartao/" target="_blank" class="faq-link">Ler artigo completo no Blog Cielo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-title">Como utilizar o Parcelamento Fluxo de Caixa no seu negócio? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-content">
+        Conheça a modalidade de parcelamento que alinha as vendas dos clientes às necessidades operacionais da empresa.
+        <br>
+        <a href="https://blog.cielo.com.br/produtos-e-servicos/parcelamento-fluxo-de-caixa/" target="_blank" class="faq-link">Ler artigo completo no Blog Cielo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-title">Como aceitar vendas internacionais e moedas estrangeiras na maquininha? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-content">
+        Veja como habilitar soluções de pagamento internacional (DCC) para cartões emitidos no exterior.
+        <br>
+        <a href="https://blog.cielo.com.br/produtos-e-servicos/solucoes-de-pagamento-vendas-internacionais/" target="_blank" class="faq-link">Ler artigo completo no Blog Cielo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-title">Quais são os tipos de Chaves Pix e como cadastrá-las? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-content">
+        Descubra as diferenças entre chave aleatória, CPF/CNPJ, e-mail e telefone para receber pagamentos na sua conta.
+        <br>
+        <a href="https://blog.cielo.com.br/produtos-e-servicos/tipos-chave-pix/" target="_blank" class="faq-link">Ler artigo completo no Blog Cielo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-title">Guia Completo de Marketplace para Iniciantes: Por onde começar? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-content">
+        Aprenda como funcionam as vendas via marketplace e como conectar a sua loja às principais plataformas de e-commerce.
+        <br>
+        <a href="https://blog.cielo.com.br/produtos-e-servicos/marketplace-guia-completo-iniciantes/" target="_blank" class="faq-link">Ler artigo completo no Blog Cielo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-title">Como realizar e aceitar pagamentos por NFC no celular? <i class="fa-solid fa-chevron-down"></i></div>
+      <div class="faq-content">
+        Saiba como funciona a tecnologia de pagamento por aproximação no dispositivo móvel de forma rápida e segura.
+        <br>
+        <a href="https://blog.cielo.com.br/produtos-e-servicos/nfc-celular/" target="_blank" class="faq-link">Ler artigo completo no Blog Cielo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 FEBRAMAT & CIELO — Federação Brasileira das Redes Associativistas de Materiais de Construção</p>
+    <p>Todos os direitos reservados. Informações de uso exclusivo para Redes Associadas.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-title').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
